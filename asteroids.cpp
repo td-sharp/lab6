@@ -57,7 +57,7 @@ extern void timeCopy(struct timespec *dest, struct timespec *source);
 //-----------------------------------------------------------------------------
 
 extern void showName();
-extern void drawBox(int x, int y);
+extern void drawBox(int, int);
 class Global {
 public:
 	int xres, yres;
