@@ -57,6 +57,7 @@ extern void timeCopy(struct timespec *dest, struct timespec *source);
 //-----------------------------------------------------------------------------
 
 extern void showName();
+extern void drawBox(int x, int y);
 class Global {
 public:
 	int xres, yres;
@@ -739,6 +740,7 @@ void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	showName();
+	drawBox(gl.xres/2, gl.yres/2);
 	Rect r;
 	//
 	r.bot = gl.yres - 20;
@@ -748,7 +750,7 @@ void render()
 	ggprint8b(&r, 16, 0x00ffff00, "n bullets: %i", g.nbullets);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids: %i", g.nasteroids);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids destroyed: ");
-	
+
 	//
 	//-------------
 	//Draw the ship
