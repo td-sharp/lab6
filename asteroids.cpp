@@ -56,6 +56,7 @@ extern double timeDiff(struct timespec *start, struct timespec *end);
 extern void timeCopy(struct timespec *dest, struct timespec *source);
 //-----------------------------------------------------------------------------
 
+extern void showName();
 class Global {
 public:
 	int xres, yres;
@@ -192,7 +193,7 @@ public:
 		if (vi == NULL) {
 			std::cout << "\n\tno appropriate visual found\n" << std::endl;
 			exit(EXIT_FAILURE);
-		} 
+		}
 		Colormap cmap = XCreateColormap(dpy, root, vi->visual, AllocNone);
 		swa.colormap = cmap;
 		swa.event_mask = ExposureMask | KeyPressMask | KeyReleaseMask |
@@ -401,7 +402,7 @@ void check_mouse(XEvent *e)
 			int xdiff = savex - e->xbutton.x;
 			int ydiff = savey - e->xbutton.y;
 			if (++ct < 10)
-				return;		
+				return;
 			if (xdiff > 0) {
 				//mouse moved along the x-axis.
 				g.ship.angle += 0.05f * (float)xdiff;
@@ -736,8 +737,9 @@ void physics()
 
 void render()
 {
-	Rect r;
 	glClear(GL_COLOR_BUFFER_BIT);
+	showName();
+	Rect r;
 	//
 	r.bot = gl.yres - 20;
 	r.left = 10;
@@ -746,6 +748,7 @@ void render()
 	ggprint8b(&r, 16, 0x00ffff00, "n bullets: %i", g.nbullets);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids: %i", g.nasteroids);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids destroyed: ");
+	
 	//
 	//-------------
 	//Draw the ship
@@ -832,9 +835,3 @@ void render()
 		++b;
 	}
 }
-
-
-
-
-
-
