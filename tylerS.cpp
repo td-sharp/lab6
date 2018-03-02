@@ -8,5 +8,5 @@ void showName()
         s.bot = 100;
         s.left = 100;
         s.center = 100;
-        ggprint8b(&s, 16, 0xFFFFFFFF, "T-diggity");
+        ggprint8b(&s, 16, 0xFFFFFFFF, "Tyler");
 }
