@@ -3,6 +3,7 @@ using namespace std;
 #include "fonts.h"
 #include <GL/glx.h>
 //NEW CHANGE NEW CHANGE
+//NEW CHANGE 2
 void showName()
 {
         Rect s;
